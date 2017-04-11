@@ -41,7 +41,8 @@ RUN pip --no-cache-dir install \
 COPY jupyter_notebook_config.py /root/.jupyter/
 
 # Copy sample notebooks.
-COPY notebooks /notebooks
+RUN mkdir /notebooks
+RUN cp -rf * /notebooks
 
 # Jupyter has issues with being run directly:
 #   https://github.com/ipython/ipython/issues/7062
